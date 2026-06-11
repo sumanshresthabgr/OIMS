@@ -72,17 +72,17 @@ include '../includes/header.php';
 
         <form action="edit_event.php?id=<?= $event_id ?>" method="POST">
             <div class="form-group">
-                <label class="form-label">Semantic Event Title</label>
+                <label class="form-label"> Event Title</label>
                 <input type="text" name="title" class="form-control" value="<?= htmlspecialchars($event['title']) ?>" required>
             </div>
             
             <div class="grid-2col">
                 <div class="form-group">
-                    <label class="form-label">Calendrical Execution Time</label>
+                    <label class="form-label">Time</label>
                     <input type="datetime-local" name="date_time" class="form-control" value="<?= date('Y-m-d\TH:i', strtotime($event['date_time'])) ?>" required>
                 </div>
                 <div class="form-group">
-                    <label class="form-label">Design Structural Preset Theme</label>
+                    <label class="form-label">Design Theme</label>
                     <select name="theme" class="form-control" required>
                         <option value="wedding" <?= $event['theme'] === 'wedding' ? 'selected' : '' ?>>Romantic Floral Style (Weddings)</option>
                         <option value="birthday" <?= $event['theme'] === 'birthday' ? 'selected' : '' ?>>Vibrant Festive Style (Birthdays)</option>
@@ -92,38 +92,38 @@ include '../includes/header.php';
             </div>
 
             <div class="form-group">
-                <label class="form-label">Geographic Venue Instructions</label>
+                <label class="form-label"> Venue Instructions</label>
                 <input type="text" name="venue" class="form-control" value="<?= htmlspecialchars($event['venue']) ?>" required>
             </div>
             
             <div class="form-group">
-                <label class="form-label">Primary Event Overview Description</label>
+                <label class="form-label">Primary Event Description</label>
                 <textarea name="description" class="form-control" rows="3"><?= htmlspecialchars($event['description'] ?? '') ?></textarea>
             </div>
 
             <h4 style="margin: 35px 0 15px 0; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; color:#718096; border-bottom: 1px solid #edf2f7; padding-bottom: 8px;">
-                ✨ Extended Aesthetic Specifications (Optional Fields)
+             Extended Aesthetic Specifications (Optional Fields)
             </h4>
 
             <div class="grid-2col">
                 <div class="form-group">
-                    <label class="form-label">👗 Dress Code Theme Guidelines</label>
+                    <label class="form-label"> Dress Code  Guidelines</label>
                     <input type="text" name="dress_code" class="form-control" value="<?= htmlspecialchars($event['dress_code'] ?? '') ?>" placeholder="e.g., Black Tie Optional">
                 </div>
                 <div class="form-group">
-                    <label class="form-label">🎁 Gift Registry Link Network</label>
+                    <label class="form-label"> Gift Registry Link Network</label>
                     <input type="url" name="registry" class="form-control" value="<?= htmlspecialchars($event['registry'] ?? '') ?>" placeholder="https://example.com/registry">
                 </div>
             </div>
 
             <div class="form-group">
-                <label class="form-label">⚠️ Special Attendance Notes</label>
+                <label class="form-label"> Attendence Check </label>
                 <textarea name="special_notes" class="form-control" rows="3" placeholder="Additional special assembly notes rows..."><?= htmlspecialchars($event['special_notes'] ?? '') ?></textarea>
             </div>
             
             <div style="display: flex; justify-content: space-between; margin-top: 40px; border-top: 1px solid #edf2f7; padding-top: 25px;">
                 <a href="dashboard.php" class="btn btn-outline">Discard Adjustments</a>
-                <button type="submit" class="btn btn-success" style="padding: 14px 35px; background-color: #2f855a; border-color: #2f855a;">Commit Configuration Changes</button>
+                <button type="submit" class="btn btn-success" style="padding: 14px 35px; background-color: #054525; border-color: #2f855a;">Commit Changes</button>
             </div>
         </form>
     </div>
