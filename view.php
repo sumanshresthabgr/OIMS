@@ -162,7 +162,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit_rsvp'])) {
         <div class="card">
             <div class="card-body">
                 <h3 style="text-align: center; font-weight: 700; margin-bottom: 30px; letter-spacing: -0.5px; text-transform: uppercase; font-size: 1.1rem; opacity: 0.8;">
-                    Confirm Attendance Matrix
+                    Confirm Attendance
                 </h3>
                 
                 <form action="view.php?id=<?= htmlspecialchars($token) ?>" method="POST">
@@ -186,7 +186,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit_rsvp'])) {
                     </div>
                     
                     <button type="submit" name="submit_rsvp" class="btn btn-theme" style="width: 100%;">
-                        Transmit Attendance Payload
+                         click to confirm
                     </button>
                 </form>
             </div>

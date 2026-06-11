@@ -75,7 +75,7 @@
 </div>
 
 <footer class="main-footer" style="color: #164eb0; margin-top: auto; padding-bottom: 30px;">
-    &copy; 2026 Dong-Eui University - Department of Intelligence Computing. Course: Web Programming one.
+    &copy; 2026 Dong-Eui University - Department of Intelligence Computing.OIMS project bY FARS.
 </footer>
 
 </body>

@@ -19,7 +19,7 @@ include '../includes/header.php';
 
 <?php if (empty($invitations)): ?>
     <div class="alert alert-info">
-        <h4>No invitations registered on your profile matrix yet.</h4>
+        <h4>No invitations registered on your profile yet.</h4>
         <p style="margin-top: 5px; font-size: 0.9rem;">Deploy your first dynamic aesthetic template engine parameters right now!</p>
     </div>
 <?php else: ?>
@@ -28,12 +28,12 @@ include '../includes/header.php';
             <table class="dashboard-table">
                 <thead>
                     <tr>
-                        <th>Event Target Title</th>
-                        <th>Execution Window</th>
+                        <th>Event Title</th>
+                        <th>Published</th>
                         <th>Theme Layout</th>
-                        <th>RSVP Tallies</th>
-                        <th>Secure Link Routing</th>
-                        <th>Action Arrays</th>
+                        <th>Tallies</th>
+                        <th>Link</th>
+                        <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
