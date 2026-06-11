@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OIMS - Online Invitation Management System</title>
+    <title>OIMS - (Online Invitation Management System)</title>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Montserrat:wght@200;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
@@ -13,8 +13,8 @@
     <div class="index-header-container">
         <a class="index-header-logo" href="index.php"> OIMS <span style="font-weight:300; opacity:0.6;">ENGINE</span></a>
         <div>
-            <a class="index-header-link" href="admin/login.php">Login</a>
-            <a class="index-header-link link-highlight" href="admin/register.php">Sign Up</a>
+            <a class="index-header-link" href="admin/login.php">Log-in</a>
+            <a class="index-header-link link-highlight" href="admin/register.php">Sign-Up</a>
         </div>
     </div>
 </header>
@@ -33,7 +33,7 @@
                 <div class="dark-accent-line"></div>
                 
                 <p class="dark-lead-text">
-                    A frictionless architecture designed to completely drop traditional account setup rules, bringing dynamic workflow engines directly to public web views inside an accelerated 5-second responsive sequence.
+                    A frictionless architecture designed to completely drop traditional card invitation setup , bringing dynamic workflow engine directly to public web views inside an accelerated 5-second responsive sequence.
                 </p>
                 
                 <div class="landing-feature-grid">
@@ -41,21 +41,21 @@
                         
                     </div>
                     <div class="feature-item dark-feature-box">
-                        <span class="feature-icon dark-icon">🎨</span>
+                        <span class="feature-icon dark-icon"></span>
                         <div>
                             <h4>Aesthetic Themes</h4>
                             <p>Stunning spaces powered entirely by custom CSS Grid layouts.</p>
                         </div>
                     </div>
                     <div class="feature-item dark-feature-box">
-                        <span class="feature-icon dark-icon">🔒</span>
+                        <span class="feature-icon dark-icon"></span>
                         <div>
                             <h4>Secure URL Routing</h4>
                             <p>Isolated token allocation prevents structural data manipulation.</p>
                         </div>
                     </div>
                     <div class="feature-item dark-feature-box">
-                        <span class="feature-icon dark-icon">📊</span>
+                        <span class="feature-icon dark-icon"></span>
                         <div>
                             <h4>Live Analytics</h4>
                             <p>Real-time submission trackers directly inside your host ledger.</p>
@@ -74,8 +74,8 @@
     </div>
 </div>
 
-<footer class="main-footer" style="color: #4a5568; margin-top: auto; padding-bottom: 30px;">
-    &copy; 2026 Dong-Eui University - Department of Intelligence Computing. Course: Web Programming 1
+<footer class="main-footer" style="color: #164eb0; margin-top: auto; padding-bottom: 30px;">
+    &copy; 2026 Dong-Eui University - Department of Intelligence Computing. Course: Web Programming one.
 </footer>
 
 </body>
