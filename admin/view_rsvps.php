@@ -37,7 +37,7 @@ include '../includes/header.php';
                     <th>S.N.</th>
                     <th>Guest Nominal Trace</th>
                     <th>Dual-State Feedback</th>
-                    <th>Chronological Timestamp</th>
+                    <th>Timestamp</th>
                 </tr>
             </thead>
             <tbody>
