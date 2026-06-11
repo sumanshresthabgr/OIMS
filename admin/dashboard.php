@@ -30,7 +30,7 @@ include '../includes/header.php';
                     <tr>
                         <th>Event Title</th>
                         <th>Published</th>
-                        <th>Theme Layout</th>
+                        <th>Theme</th>
                         <th>Tallies</th>
                         <th>Link</th>
                         <th>Action</th>
