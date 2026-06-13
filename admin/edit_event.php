@@ -70,7 +70,7 @@ include '../includes/header.php';
             <div class="alert <?= $feedbackClass ?>"><?= $feedbackMessage ?></div>
         <?php endif; ?>
 
-        <form action="edit_event.php?id=<?= $event_id ?>" method="POST">
+        <form action="edit_event.php?id=<?= $event_id ?>" method="POST" id="editInvitationForm">
             <div class="form-group">
                 <label class="form-label"> Event Title</label>
                 <input type="text" name="title" class="form-control" value="<?= htmlspecialchars($event['title']) ?>" required>
@@ -79,7 +79,7 @@ include '../includes/header.php';
             <div class="grid-2col">
                 <div class="form-group">
                     <label class="form-label">Time</label>
-                    <input type="datetime-local" name="date_time" class="form-control" value="<?= date('Y-m-d\TH:i', strtotime($event['date_time'])) ?>" required>
+                    <input type="datetime-local" name="date_time" id="event_date_time" class="form-control" value="<?= date('Y-m-d\TH:i', strtotime($event['date_time'])) ?>" required>
                 </div>
                 <div class="form-group">
                     <label class="form-label">Design Theme</label>
@@ -102,7 +102,7 @@ include '../includes/header.php';
             </div>
 
             <h4 style="margin: 35px 0 15px 0; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; color:#718096; border-bottom: 1px solid #edf2f7; padding-bottom: 8px;">
-             Extended Aesthetic Specifications (Optional Fields)
+              Extended Aesthetic Specifications (Optional Fields)
             </h4>
 
             <div class="grid-2col">
@@ -128,5 +128,38 @@ include '../includes/header.php';
         </form>
     </div>
 </div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    const dateTimeInput = document.getElementById("event_date_time");
+    const form = document.getElementById("editInvitationForm");
+
+    function getFormattedCurrentDateTime() {
+        const now = new Date();
+        const year = now.getFullYear();
+        const month = String(now.getMonth() + 1).padStart(2, '0');
+        const day = String(now.getDate()).padStart(2, '0');
+        const hours = String(now.getHours()).padStart(2, '0');
+        const minutes = String(now.getMinutes()).padStart(2, '0');
+        return `${year}-${month}-${day}T${hours}:${minutes}`;
+    }
+
+    // Set the native calendar pick selector min threshold to the current exact execution timeline
+    const currentDateTimeString = getFormattedCurrentDateTime();
+    dateTimeInput.min = currentDateTimeString;
+
+    // Rigid check blocking user from overriding inputs manually via keystrokes
+    form.addEventListener("submit", function(event) {
+        const selectedDateTime = new Date(dateTimeInput.value);
+        const dynamicNow = new Date();
+
+        if (selectedDateTime < dynamicNow) {
+            event.preventDefault();
+            alert("The event date and time cannot be set in the past. Please update it to a future time.");
+            dateTimeInput.focus();
+        }
+    });
+});
+</script>
 
 <?php include '../includes/footer.php'; ?>

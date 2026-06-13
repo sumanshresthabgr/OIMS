@@ -8,7 +8,7 @@ include '../includes/header.php';
         <h3>Invitation Details</h3>
     </div>
     <div class="card-body">
-        <form action="process_event.php" method="POST">
+        <form action="process_event.php" method="POST" id="invitationForm">
             <div class="form-group">
                 <label class="form-label">Event Title</label>
                 <input type="text" name="title" class="form-control" placeholder="e.g., John & Mary Wedding Celebration" required>
@@ -17,7 +17,7 @@ include '../includes/header.php';
             <div class="grid-2col">
                 <div class="form-group">
                     <label class="form-label">Event Time</label>
-                    <input type="datetime-local" name="date_time" class="form-control" required>
+                    <input type="datetime-local" name="date_time" id="event_date_time" class="form-control" required>
                 </div>
                 <div class="form-group">
                     <label class="form-label">Theme</label>
@@ -66,5 +66,38 @@ include '../includes/header.php';
         </form>
     </div>
 </div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    const dateTimeInput = document.getElementById("event_date_time");
+    const form = document.getElementById("invitationForm");
+
+    function getFormattedCurrentDateTime() {
+        const now = new Date();
+        const year = now.getFullYear();
+        const month = String(now.getMonth() + 1).padStart(2, '0');
+        const day = String(now.getDate()).padStart(2, '0');
+        const hours = String(now.getHours()).padStart(2, '0');
+        const minutes = String(now.getMinutes()).padStart(2, '0');
+        return `${year}-${month}-${day}T${hours}:${minutes}`;
+    }
+
+    // Set the minimum selectable date-time to the current exact time
+    const currentDateTimeString = getFormattedCurrentDateTime();
+    dateTimeInput.min = currentDateTimeString;
+
+    // Hard submission check to block manual keystroke past-date inputs
+    form.addEventListener("submit", function(event) {
+        const selectedDateTime = new Date(dateTimeInput.value);
+        const dynamicNow = new Date();
+
+        if (selectedDateTime < dynamicNow) {
+            event.preventDefault();
+            alert("⚠️ The event date and time cannot be set in the past. Please choose a future time.");
+            dateTimeInput.focus();
+        }
+    });
+});
+</script>
 
 <?php include '../includes/footer.php'; ?>
