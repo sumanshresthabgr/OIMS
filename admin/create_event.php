@@ -5,22 +5,22 @@ include '../includes/header.php';
 
 <div class="card form-grid-width">
     <div class="card-header">
-        <h3>Configure Aesthetic Design Specifications</h3>
+        <h3>Invitation Details</h3>
     </div>
     <div class="card-body">
         <form action="process_event.php" method="POST">
             <div class="form-group">
-                <label class="form-label">Semantic Event Title</label>
+                <label class="form-label">Event Title</label>
                 <input type="text" name="title" class="form-control" placeholder="e.g., John & Mary Wedding Celebration" required>
             </div>
             
             <div class="grid-2col">
                 <div class="form-group">
-                    <label class="form-label">Calendrical Execution Time</label>
+                    <label class="form-label">Event Time</label>
                     <input type="datetime-local" name="date_time" class="form-control" required>
                 </div>
                 <div class="form-group">
-                    <label class="form-label">Design Structural Preset Theme</label>
+                    <label class="form-label">Theme</label>
                     <select name="theme" class="form-control" required>
                         <option value="wedding">Romantic Floral Style (Weddings)</option>
                         <option value="birthday">Vibrant Festive Style (Birthdays)</option>
@@ -30,32 +30,32 @@ include '../includes/header.php';
             </div>
 
             <div class="form-group">
-                <label class="form-label">Geographic Venue Instructions</label>
+                <label class="form-label">Venue Instructions</label>
                 <input type="text" name="venue" class="form-control" placeholder="Full address details" required>
             </div>
             
             <div class="form-group">
-                <label class="form-label">Primary Event Overview Description</label>
+                <label class="form-label">Event Description</label>
                 <textarea name="description" class="form-control" rows="3" placeholder="A brief welcome or introductory message for your guests..."></textarea>
             </div>
 
             <h4 style="margin: 35px 0 15px 0; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; color:#718096; border-bottom: 1px solid #edf2f7; padding-bottom: 8px;">
-                ✨ Extended Aesthetic Specifications (Optional Fields)
+                Other Description (Optional Fields)
             </h4>
 
             <div class="grid-2col">
                 <div class="form-group">
-                    <label class="form-label">👗 Dress Code Theme Guidelines</label>
+                    <label class="form-label">Dress Code Guidelines</label>
                     <input type="text" name="dress_code" class="form-control" placeholder="e.g., Black Tie Optional, Smart Casual">
                 </div>
                 <div class="form-group">
-                    <label class="form-label">🎁 Gift Registry Link Network</label>
+                    <label class="form-label">Gift Registry Link Network</label>
                     <input type="url" name="registry" class="form-control" placeholder="https://example.com/registry">
                 </div>
             </div>
 
             <div class="form-group">
-                <label class="form-label">⚠️ Special Attendance Notes</label>
+                <label class="form-label">Special Attendance Notes</label>
                 <textarea name="special_notes" class="form-control" rows="3" placeholder="e.g., Please arrive 15 minutes early. Valet parking available on-site. Adult-only reception."></textarea>
             </div>
             

@@ -65,7 +65,7 @@
                 
                 <div style="margin-top: 55px;">
                     <a href="admin/login.php" class="btn btn-primary dark-premium-cta">
-                        Launch Administrative Control Deck &rarr;
+                       Let's Get Started &rarr;
                     </a>
                 </div>
 

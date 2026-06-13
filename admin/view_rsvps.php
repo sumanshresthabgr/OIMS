@@ -21,12 +21,33 @@ $stmt_rsvps = $pdo->prepare("SELECT * FROM rsvps WHERE invitation_id = :invitati
 $stmt_rsvps->execute(['invitation_id' => $invitation_id]);
 $rsvps = $stmt_rsvps->fetchAll();
 
+// Calculate operational transaction metrics for the ledger header
+$count_attending = 0;
+$count_declined = 0;
+
+foreach ($rsvps as $rsvp) {
+    if ($rsvp['status'] === 'Attending') {
+        $count_attending++;
+    } else {
+        $count_declined++;
+    }
+}
+
 include '../includes/header.php';
 ?>
 
 <div style="margin-bottom: 25px;">
     <a href="dashboard.php" class="btn btn-outline" style="padding: 6px 12px; margin-bottom: 15px;">&larr; Back to Console</a>
     <h2>Interactive Guest Ledger: <span style="color: #2563eb;"><?= htmlspecialchars($event['title']) ?></span></h2>
+    
+    <div style="display: flex; gap: 15px; margin-top: 15px; font-family: 'Montserrat', sans-serif;">
+        <div style="background: #f0fdf4; border: 1px solid #bbf7d0; color: #166534; padding: 8px 16px; border-radius: 6px; font-size: 0.9rem; font-weight: 600;">
+            Attending: <span style="font-weight: 700; font-size: 1rem;"><?= $count_attending ?></span>
+        </div>
+        <div style="background: #fef2f2; border: 1px solid #fecaca; color: #991b1b; padding: 8px 16px; border-radius: 6px; font-size: 0.9rem; font-weight: 600;">
+            Declined: <span style="font-weight: 700; font-size: 1rem;"><?= $count_declined ?></span>
+        </div>
+    </div>
 </div>
 
 <div class="card">

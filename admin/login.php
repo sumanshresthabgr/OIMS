@@ -1,6 +1,13 @@
 <?php
 require_once '../config/database.php';
 session_start();
+
+// If the user is already logged in, bypass the login page and send them to the dashboard
+if (isset($_SESSION['admin_id'])) {
+    header("Location: dashboard.php");
+    exit();
+}
+
 $error = '';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {

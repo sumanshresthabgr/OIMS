@@ -10,7 +10,7 @@
 <body>
 <nav class="main-navbar">
     <div class="nav-container">
-        <a class="nav-logo" href="../index.php"> OIMS Platform</a>
+        <a class="nav-logo" href="../index.php"> OIMS ENGINE</a>
         <div class="nav-links">
             <?php if (session_status() == PHP_SESSION_NONE) { session_start(); } ?>
             <?php if (isset($_SESSION['admin_id'])): ?>
