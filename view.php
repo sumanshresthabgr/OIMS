@@ -34,19 +34,32 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit_rsvp'])) {
     $status     = trim($_POST['status']);
 
     if (!empty($guest_name) && in_array($status, ['Attending', 'Declined'])) {
-        $ins = $pdo->prepare("INSERT INTO rsvps (invitation_id, guest_name, status) VALUES (:invitation_id, :guest_name, :status)");
-        $ins->execute([
+        
+        // Check if this attendee has already submitted an RSVP for this specific event
+        $checkDuplicate = $pdo->prepare("SELECT COUNT(*) FROM rsvps WHERE invitation_id = :invitation_id AND LOWER(TRIM(guest_name)) = LOWER(:guest_name)");
+        $checkDuplicate->execute([
             'invitation_id' => $event['id'],
-            'guest_name'    => $guest_name,
-            'status'        => $status
+            'guest_name'    => $guest_name
         ]);
         
-        $rsvp_completed = true;
-        $saved_guest_name = htmlspecialchars($guest_name);
-        $saved_status = $status;
-        
-        $feedbackMessage = "Thank you! Your RSVP submission status ('" . htmlspecialchars($status) . "') has been saved.";
-        $feedbackClass = "alert-success";
+        if ($checkDuplicate->fetchColumn() > 0) {
+            $feedbackMessage = "Submission Error: An RSVP has already been submitted under the name '" . htmlspecialchars($guest_name) . "' for this invitation.";
+            $feedbackClass = "alert-danger";
+        } else {
+            $ins = $pdo->prepare("INSERT INTO rsvps (invitation_id, guest_name, status) VALUES (:invitation_id, :guest_name, :status)");
+            $ins->execute([
+                'invitation_id' => $event['id'],
+                'guest_name'    => $guest_name,
+                'status'        => $status
+            ]);
+            
+            $rsvp_completed = true;
+            $saved_guest_name = htmlspecialchars($guest_name);
+            $saved_status = $status;
+            
+            $feedbackMessage = "Thank you! Your RSVP submission status ('" . htmlspecialchars($status) . "') has been saved.";
+            $feedbackClass = "alert-success";
+        }
     } else {
         $feedbackMessage = "Submission Error: Please supply an entry name value row attribute.";
         $feedbackClass = "alert-danger";
